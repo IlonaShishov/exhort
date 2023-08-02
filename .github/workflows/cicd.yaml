@@ -53,7 +53,6 @@ jobs:
           };
 
           const GHCR = "ghcr.io";
-          # If image registry is GHCR - no registry credentials required, otherwise collect credentials
           if (!`${{ env.IMAGE_REGISTRY }}`.startsWith(GHCR)) {
             secrets["IMAGE_REGISTRY_PASSWORD"] = `${{ secrets.IMAGE_REGISTRY_PASSWORD }}`;
           }
