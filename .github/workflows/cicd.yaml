@@ -134,15 +134,4 @@ jobs:
           oc patch deployment ${{ env.OPENSHIFT_DEPLOYMENT_NAME }} -p "${DEPLOYMENT_PATCH}"
 
       - name: Monitor Deployment Status
-        run: |
-          set +e # Disable exit on error temporarily
-          error_message=$(oc rollout status deployment/${{ env.OPENSHIFT_DEPLOYMENT_NAME }} 2>&1)  # Capture error message
-          STATUS=$?
-          if [ $STATUS -ne 0 ]; then
-            echo "Error: Deployment failed."
-            echo "$error_message"  # Echo the error message
-            exit 1
-          fi
-          echo "Deployment completed successfully."
-          echo "$error_message"  # Echo the error message
-          set -e # Enable exit on error again
+        run: oc rollout status deployment/${{ env.OPENSHIFT_DEPLOYMENT_NAME }}
