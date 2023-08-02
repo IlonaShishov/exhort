@@ -16,8 +16,8 @@ env:
   IMAGE_REGISTRY: quay.io/ishishov #quay.io/ecosystem-appeng
   IMAGE_NAME: exhort
   IMAGE_TAGS: latest
-  IMAGE_REGISTRY_USER: ${{ secrets.QUAY_USER1 }}
-  IMAGE_REGISTRY_PASSWORD: ${{ secrets.QUAY_PASSWORD1 }}
+  IMAGE_REGISTRY_USER: ${{ secrets.QUAY_USER }}
+  IMAGE_REGISTRY_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
   # 🖊️ EDIT to change Dockerfile.
   DOCKERFILE_PATH: ./src/main/docker/Dockerfile.native-micro
 
