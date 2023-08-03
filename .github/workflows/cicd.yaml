@@ -89,7 +89,7 @@ jobs:
           cache: 'maven'
 
       - name: Build Package with Maven
-        run: mvn package -Pnative
+        run: mvn verify -Pnative
 
       - name: Build Image With buildah
         id: build-image
@@ -134,4 +134,4 @@ jobs:
           oc patch deployment ${{ env.OPENSHIFT_DEPLOYMENT_NAME }} -p "${DEPLOYMENT_PATCH}"
 
       - name: Monitor Deployment Status
-        run: oc rollout status deployment/${{ env.OPENSHIFT_DEPLOYMENT_NAME }} 2>&1
+        run: oc rollout status deployment/${{ env.OPENSHIFT_DEPLOYMENT_NAME }}
